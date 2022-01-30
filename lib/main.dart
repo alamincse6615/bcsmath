@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:bcsmath/category.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -60,7 +63,16 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-
+  void initState() {
+    // TODO: implement initState
+    Timer(Duration(seconds:3), (){
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context)=>Category())
+      );
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
