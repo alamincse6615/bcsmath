@@ -1,7 +1,12 @@
+import 'package:bcsmath/subcategory.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
-  const Details({Key? key}) : super(key: key);
+  // String subCategoryName;
+  // String subCategoryDetails;
+
+  // Details(this.subCategoryName, this.subCategoryDetails);
 
   @override
   _DetailsState createState() => _DetailsState();
@@ -33,6 +38,7 @@ class _DetailsState extends State<Details> {
     return Scaffold(
       appBar: AppBar(
         title: Text("topic will be come here "),
+
       ),
       body: Column(
         children: [
@@ -42,7 +48,16 @@ class _DetailsState extends State<Details> {
               children: [
                 Text("category Name  "),
                 Icon(Icons.arrow_forward),
-                Text("  SubCategory Name")
+                InkWell(child: Text("  SubCategory Name"
+                ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder:
+                                (context) => SubCategory ()));
+                  },
+                ),
               ],
             ),
           ),

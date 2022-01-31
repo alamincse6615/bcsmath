@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bcsmath/details.dart';
 import 'package:flutter/material.dart';
 
@@ -5,7 +7,9 @@ class SubCategory extends StatefulWidget {
   const SubCategory({Key? key}) : super(key: key);
 
   @override
+
   _SubCategoryState createState() => _SubCategoryState();
+
 }
 
 class _SubCategoryState extends State<SubCategory> {
@@ -14,7 +18,7 @@ class _SubCategoryState extends State<SubCategory> {
     return Scaffold(
       backgroundColor: Colors.black26,
       appBar: AppBar(
-        title: Text("Category name will be come here"),
+        title: Text("গণিতের বেসিক, Important টেকনিক"),
       ),
       body: ListView.builder(
           itemCount: 5,
@@ -22,11 +26,11 @@ class _SubCategoryState extends State<SubCategory> {
             return Padding(
               padding: const EdgeInsets.only(left: 8.0,right: 8.0),
               child: InkWell(
+
                 onTap: (){
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context)=>Details())
-                  );
+                      MaterialPageRoute(builder: (context)=>Details()));
                 },
                 child: Card(
                   child: Padding(
@@ -38,6 +42,7 @@ class _SubCategoryState extends State<SubCategory> {
                             fontWeight: FontWeight.bold,
                             fontSize: 20
                         ),
+
                       ),
                       trailing: Icon(Icons.arrow_forward_ios),
                     )
@@ -50,4 +55,5 @@ class _SubCategoryState extends State<SubCategory> {
 
     );
   }
+
 }
