@@ -1,13 +1,16 @@
 import 'dart:convert';
 
 import 'package:bcsmath/details.dart';
+import 'package:bcsmath/model/categorymodel.dart';
 import 'package:bcsmath/model/subcategorymodel.dart';
 import 'package:flutter/material.dart';
 
 class SubCategory extends StatefulWidget {
   String categoryName;
   List<SubCategoryModel> subcategorylist;
-  SubCategory(this.categoryName,this.subcategorylist);
+
+  SubCategory(this.categoryName,this.subcategorylist,);
+
 
   @override
 
@@ -16,15 +19,19 @@ class SubCategory extends StatefulWidget {
 }
 
 class _SubCategoryState extends State<SubCategory> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black26,
       appBar: AppBar(
-        title: Text("গণিতের বেসিক, Important টেকনিক"),
+
+        title: Text("jfurgf"),
       ),
       body: ListView.builder(
           itemCount: widget.subcategorylist.length,
+
           itemBuilder: (context,index){
             return Padding(
               padding: const EdgeInsets.only(left: 8.0,right: 8.0),
@@ -45,11 +52,13 @@ class _SubCategoryState extends State<SubCategory> {
                         widget.subcategorylist[index].subCategoryName.toString(),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20
+                            fontSize: 20,
+                          color: Color(0xD351FF21),
                         ),
 
                       ),
                       trailing: Icon(Icons.arrow_forward_ios),
+
                     )
                   ),
                 ),
