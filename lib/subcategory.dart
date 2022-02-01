@@ -1,10 +1,13 @@
 import 'dart:convert';
 
 import 'package:bcsmath/details.dart';
+import 'package:bcsmath/model/subcategorymodel.dart';
 import 'package:flutter/material.dart';
 
 class SubCategory extends StatefulWidget {
-  const SubCategory({Key? key}) : super(key: key);
+  String categoryName;
+  List<SubCategoryModel> subcategorylist;
+  SubCategory(this.categoryName,this.subcategorylist);
 
   @override
 
@@ -21,7 +24,7 @@ class _SubCategoryState extends State<SubCategory> {
         title: Text("গণিতের বেসিক, Important টেকনিক"),
       ),
       body: ListView.builder(
-          itemCount: 5,
+          itemCount: widget.subcategorylist.length,
           itemBuilder: (context,index){
             return Padding(
               padding: const EdgeInsets.only(left: 8.0,right: 8.0),
@@ -30,14 +33,16 @@ class _SubCategoryState extends State<SubCategory> {
                 onTap: (){
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context)=>Details()));
+                      MaterialPageRoute(builder: (context)=>Details(
+                          widget.subcategorylist[index]
+                      )));
                 },
                 child: Card(
                   child: Padding(
                     padding: const EdgeInsets.all(18.0),
                     child: ListTile(
                       title: Text(
-                        "Sub Category name",
+                        widget.subcategorylist[index].subCategoryName.toString(),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20

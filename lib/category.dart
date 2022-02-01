@@ -28,7 +28,7 @@ class _CategoryState extends State<Category> {
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications_active))
         ],
       ),
-      body: Padding(
+     /* body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.count(
           crossAxisCount: 2,
@@ -288,7 +288,44 @@ class _CategoryState extends State<Category> {
 
           ],
         ),
-      ),
+      ),*/
+      body: FutureBuilder(
+        future: jsonfunction(),
+        builder:(context,info){
+          var _list = info.data as List<CategoryModel>;
+          return Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: GridView.builder(
+                itemCount: _list.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5
+                ),
+                itemBuilder: (context,index){
+                  return InkWell(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.red,
+                      ),
+
+                      alignment: Alignment.center,
+                      child: Text(_list[index].categoryName.toString(),textAlign: TextAlign.center,),
+                    ),
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SubCategory(
+                          _list[index].categoryName!,
+                          _list[index].subcategorylist!,
+
+                      )));
+                    },
+                  );
+                }
+            ),
+          );
+        },
+      )
     );
   }
 
