@@ -5,6 +5,7 @@ import 'package:bcsmath/subcategory.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'details.dart';
 import 'model/categorymodel.dart';
 
@@ -22,15 +23,25 @@ class _CategoryState extends State<Category> {
     final list = json.decode(jsonProduct) as List<dynamic>;
     return list.map((e) => CategoryModel.fromJson(e)).toList();
   }
+  Future<void> share() async {
+    await FlutterShare.share(
+        title: 'Example share',
+        text: 'Example share text',
+        linkUrl: 'https://flutter.dev/',
+        chooserTitle: 'Example Chooser Title');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Center(child: Text("Bcs Math")),
+          title: Center(child: Text("বি সি এস ম্যাথ")),
           actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.share))
+            IconButton(onPressed: () {
+              share();
+            },
+             icon: Icon(Icons.share))
           ],
         ),
         drawer: Drawer(
@@ -38,7 +49,7 @@ class _CategoryState extends State<Category> {
             child: ListView(
               children: [
                 UserAccountsDrawerHeader(
-                  accountName: Text("Bcs Math",
+                  accountName: Text("বি সি এস ম্যাথ",
                     style: TextStyle(fontSize: 24,
                         fontWeight: FontWeight.bold),
                   ),
@@ -67,6 +78,9 @@ class _CategoryState extends State<Category> {
                 ListTile(
                   title: Text("Share"),
                   leading: Icon(Icons.share_outlined),
+                  onTap: (){
+                    share();
+                  },
                 ),
                 ListTile(
                   title: Text("Exit"),
@@ -339,43 +353,61 @@ class _CategoryState extends State<Category> {
         body: FutureBuilder(
           future: jsonfunction(),
           builder: (context, info) {
-            var _list = info.data as List<CategoryModel>;
-            return Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: GridView.builder(
-                  itemCount: _list.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 5,
-                      mainAxisSpacing: 5),
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Color(0xD351FF21),
+            print(info);
+            if(info.hasData){
+              List<CategoryModel> _list = info.data as  List<CategoryModel>;
+              return Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: GridView.builder(
+                    itemCount: _list.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 5,
+                        mainAxisSpacing: 5),
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color(0xD351FF21),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            _list[index].categoryName.toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          _list[index].categoryName.toString(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SubCategory(
-                                      _list[index].categoryName!,
-                                      _list[index].subcategorylist!,
-                                    )));
-                      },
-                    );
-                  }),
-            );
-          },
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SubCategory(
+                                    _list[index].categoryName!,
+                                    _list[index].subcategorylist!,
+                                  )));
+                        },
+                      );
+                    }),
+              );
+            }
+            if(info.hasData != null){
+              return Center(
+                child: Container(
+                  child: Text("Loading..."),
+                ),
+              );
+            }
+            else{
+              return Center(
+                child: Container(
+                  child: Text("Loading..."),
+                ),
+              );
+            }
+            }
+
         ));
   }
 }

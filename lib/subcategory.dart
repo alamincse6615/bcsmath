@@ -20,14 +20,13 @@ class SubCategory extends StatefulWidget {
 
 class _SubCategoryState extends State<SubCategory> {
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black26,
       appBar: AppBar(
 
-        title: Text("jfurgf"),
+        title: Text(widget.categoryName),
       ),
       body: ListView.builder(
           itemCount: widget.subcategorylist.length,
