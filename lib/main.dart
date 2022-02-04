@@ -49,14 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-
-
-      )
+      backgroundColor: Color(0xFFEFEBEB),
+    body: Center(
+    child:CircleAvatar(
+    radius: 100,
+    backgroundImage: AssetImage("assets/logo.png"),
+    ),
+    ),
     );
   }
 }

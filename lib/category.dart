@@ -48,7 +48,11 @@ class _CategoryState extends State<Category> {
             backgroundColor: Color(0xFF05DB58),
             child: ListView(
               children: [
+
                 UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                  ),
                   accountName: Text("বি সি এস ম্যাথ",
                     style: TextStyle(fontSize: 24,
                         fontWeight: FontWeight.bold),
@@ -56,7 +60,9 @@ class _CategoryState extends State<Category> {
                   accountEmail: Text(""),
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: AssetImage(
-                        "assets/images/mathbasic.png"),
+                        "assets/logo.png",
+
+                    ),
                   ),
                 ),
                 ListTile(
@@ -84,9 +90,9 @@ class _CategoryState extends State<Category> {
                 ),
                 ListTile(
                   title: Text("Exit"),
-                  leading: Icon(Icons.exit_to_app),
-                ),
-
+                  leading: Icon(Icons.exit_to_app
+                  )
+                )
               ],
             )),
         /* body: Padding(

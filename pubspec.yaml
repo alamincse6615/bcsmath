@@ -38,6 +38,7 @@ dependencies:
   flutter_share: ^2.0.0
   font_awesome_flutter: ^9.2.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -65,6 +66,13 @@ flutter:
     - assets/jsonfile/jsondata.json
     - assets/images/mathbasic.png
     - assets/osma.png
+    - assets/logo.png
+    - assets/sir.jpg
+    - assets/saha.jpeg
+    - assets/prodip.jpg
+    - assets/sanuarul.jpg
+    - assets/tanvir.jpg
+    - assets/iqbal.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
