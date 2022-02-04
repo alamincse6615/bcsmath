@@ -131,7 +131,7 @@ class _AboutState extends State<About> {
                                 child: IconButton(
                                   onPressed: (
                                       ){
-                                    _launchInWebViewOrVC("https://www.facebook.com/angel.srute.1");
+                                    _launchInWebViewOrVC("https://web.facebook.com/alamincse6615");
                                   },
                                   icon: FaIcon(FontAwesomeIcons.facebook,
                                   ),
