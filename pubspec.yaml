@@ -65,8 +65,10 @@ flutter:
   assets:
     - assets/jsonfile/jsondata.json
     - assets/images/mathbasic.png
-    - assets/osma.png
+
     - assets/logo.png
+    - assets/md osman.png
+    - assets/jahirul.jpg
     - assets/sir.jpg
     - assets/saha.jpeg
     - assets/prodip.jpg

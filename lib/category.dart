@@ -8,6 +8,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'details.dart';
 import 'model/categorymodel.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class Category extends StatefulWidget {
   const Category({Key? key}) : super(key: key);
@@ -30,7 +32,16 @@ class _CategoryState extends State<Category> {
         linkUrl: 'https://flutter.dev/',
         chooserTitle: 'Example Chooser Title');
   }
-
+  Future<void> _launchInWebViewOrVC(String url) async {
+    if (!await launch(
+      url,
+      forceSafariVC: true,
+      forceWebView: true,
+      headers: <String, String>{'my_header_key': 'my_header_value'},
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +52,15 @@ class _CategoryState extends State<Category> {
             IconButton(onPressed: () {
               share();
             },
-             icon: Icon(Icons.share))
+             icon: Icon(Icons.share)),
+            IconButton(onPressed: () {
+              _launchInWebViewOrVC("https://play.google.com/store/apps/details?id");
+            },
+             icon: Center(
+               child: Icon(Icons.star_rate_sharp,
+               size: 30,
+               ),
+             ))
           ],
         ),
         drawer: Drawer(

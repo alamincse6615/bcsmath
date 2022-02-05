@@ -145,9 +145,7 @@ class _AboutState extends State<About> {
                                 height: 40,
                                 width: 60,
                                 child: IconButton(
-                                  onPressed: (){
-                                    _launchInWebViewOrVC("khondokersahazadi@gmail.com");
-                                  },
+                                  onPressed: (){},
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
                               ),
@@ -208,7 +206,7 @@ class _AboutState extends State<About> {
                             width: MediaQuery.of(context).size.width,
                             child: CircleAvatar(
                               backgroundImage: AssetImage(
-                                "assets/osma.png"
+                                "assets/md osman.png"
                               ),
                               radius: 50,
                             ),
@@ -264,7 +262,8 @@ class _AboutState extends State<About> {
                                 width: 60,
                                 child: IconButton(
                                   onPressed: (){
-                                    _launchInWebViewOrVC("mdosman202166@gmail.com");
+                                    launch(
+                                        "mailto:mdosman202166@gmail.com?subject=Hi&body=How are you");
                                   },
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
@@ -326,7 +325,7 @@ class _AboutState extends State<About> {
                             width: MediaQuery.of(context).size.width,
                             child: CircleAvatar(
                               backgroundImage: AssetImage(
-                                "assets/"
+                                "assets/jahirul.jpg"
                               ),
                               radius: 50,
                             ),
@@ -382,7 +381,8 @@ class _AboutState extends State<About> {
                                 width: 60,
                                 child: IconButton(
                                   onPressed: (){
-                                    _launchInWebViewOrVC("jahirulislam0276@gmail.com");
+                                    launch(
+                                        "mailto:jahirulislam0276@gmail.com?subject=Hi&body=How are you");
                                   },
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
@@ -500,7 +500,8 @@ class _AboutState extends State<About> {
                                 width: 60,
                                 child: IconButton(
                                   onPressed: (){
-                                    _launchInWebViewOrVC("prodip767@gmail.com");
+                                    launch(
+                                        "mailto:prodip767@gmail.com?subject=Hi&body=How are you");
                                   },
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
@@ -618,7 +619,8 @@ class _AboutState extends State<About> {
                                 width: 60,
                                 child: IconButton(
                                   onPressed: (){
-                                    _launchInWebViewOrVC("khondokersahazadi@gmail.com");
+                                    launch(
+                                        "mailto:khondokersahazadi@gmail.com?subject=Hi&body=How are you");
                                   },
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
@@ -736,7 +738,8 @@ class _AboutState extends State<About> {
                                 width: 60,
                                 child: IconButton(
                                   onPressed: (){
-                                    _launchInWebViewOrVC("si.shawon396@gmail.com");
+                                    launch(
+                                        "mailto:si.shawon396@gmail.com?subject=Hi&body=How are you");
                                   },
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
@@ -855,7 +858,8 @@ class _AboutState extends State<About> {
                                 width: 60,
                                 child: IconButton(
                                   onPressed: (){
-                                    _launchInWebViewOrVC("tanvirahmed1977@gmail.com");
+                                    launch(
+                                        "mailto:iqbal.bepary440@gmail.com.com?subject=Hi&body=How are you");
                                   },
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
@@ -973,8 +977,9 @@ class _AboutState extends State<About> {
                                 width: 60,
                                 child: IconButton(
                                   onPressed: (){
-                                    _launchInWebViewOrVC("iqbal.bepary440@gmail.com");
-                                  },
+                                    launch(
+                                        "mailto:iqbal.bepary440@gmail.com?subject=Hi&body=How are you");
+                                    },
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
                               ),
@@ -1016,8 +1021,6 @@ class _AboutState extends State<About> {
               ),
             ),
           ),
-
-
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Container(
@@ -1093,7 +1096,8 @@ class _AboutState extends State<About> {
                                 width: 60,
                                 child: IconButton(
                                   onPressed: (){
-                                    _launchInWebViewOrVC("shawonsp424@gmail.com");
+                                    launch(
+                                        "mailto:shawonsp424@gmail.com?subject=Hi&body=How are you");
                                   },
                                   icon:  FaIcon(FontAwesomeIcons.envelope),
                                 ),
@@ -1136,12 +1140,6 @@ class _AboutState extends State<About> {
               ),
             ),
           ),
-
-
-
-
-
-
         ],
       )
     );
