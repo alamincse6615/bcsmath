@@ -1040,7 +1040,7 @@ class _AboutState extends State<About> {
                             width: MediaQuery.of(context).size.width,
                             child: CircleAvatar(
                               backgroundImage: AssetImage(
-                                "assets/"
+                                "assets/shawon.jpg"
                               ),
                               radius: 50,
                             ),
