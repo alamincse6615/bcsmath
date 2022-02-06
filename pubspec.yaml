@@ -37,6 +37,8 @@ dependencies:
   url_launcher: ^6.0.18
   flutter_share: ^2.0.0
   font_awesome_flutter: ^9.2.0
+  webview_flutter: ^3.0.0
+  bordered_text: ^2.0.0
 
 
 dev_dependencies:
@@ -76,6 +78,8 @@ flutter:
     - assets/tanvir.jpg
     - assets/iqbal.jpg
     - assets/shawon.jpg
+    - assets/logobcsmath.jpg
+    - assets/bcsmath.html
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

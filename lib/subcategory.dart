@@ -52,7 +52,7 @@ class _SubCategoryState extends State<SubCategory> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
-                          color: Color(0xD351FF21),
+                          color: Color(0xD3FFFFFF),
                         ),
 
                       ),

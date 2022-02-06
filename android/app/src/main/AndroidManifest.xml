@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nintyone.bcsmath">
    <application
-        android:label="bcsmath"
+        android:label="Bcs Math"
         android:name="${applicationName}"
-        android:icon="@drawable/llogo">
+        android:icon="@drawable/logobcsmath">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:bcsmath/about.dart';
 import 'package:bcsmath/privacy%20policy.dart';
 import 'package:bcsmath/subcategory.dart';
@@ -27,10 +28,10 @@ class _CategoryState extends State<Category> {
   }
   Future<void> share() async {
     await FlutterShare.share(
-        title: 'Example share',
-        text: 'Example share text',
-        linkUrl: 'https://flutter.dev/',
-        chooserTitle: 'Example Chooser Title');
+        title: 'বিসিএস ম্যাথ সলুসন',
+        linkUrl: 'https://play.google.com/store/apps/details?id=com.nintyone.bcsmath',
+
+    );
   }
   Future<void> _launchInWebViewOrVC(String url) async {
     if (!await launch(
@@ -46,7 +47,6 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
           title: Center(child: Text("বি সি এস ম্যাথ")),
           actions: [
             IconButton(onPressed: () {
@@ -54,7 +54,7 @@ class _CategoryState extends State<Category> {
             },
              icon: Icon(Icons.share)),
             IconButton(onPressed: () {
-              _launchInWebViewOrVC("https://play.google.com/store/apps/details?id");
+              _launchInWebViewOrVC("https://play.google.com/store/apps/details?id=com.nintyone.bcsmath");
             },
              icon: Center(
                child: Icon(Icons.star_rate_sharp,
@@ -64,26 +64,32 @@ class _CategoryState extends State<Category> {
           ],
         ),
         drawer: Drawer(
-            backgroundColor: Color(0xFF05DB58),
             child: ListView(
               children: [
 
-                UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  accountName: Text("বি সি এস ম্যাথ",
-                    style: TextStyle(fontSize: 24,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  accountEmail: Text(""),
-                  currentAccountPicture: CircleAvatar(
-                    backgroundImage: AssetImage(
-                        "assets/logo.png",
-
+                Card(
+                  child: Container(
+                    height: 230,
+                    child: Column(
+                      children: [
+                        SizedBox(height: 25,),
+                        CircleAvatar(
+                          backgroundImage: AssetImage(
+                            "assets/logobcsmath.jpg"
+                          ),
+                          radius: 60,
+                        ),
+                        SizedBox(height: 5,),
+                        Text("বিসিএস ম্যাথ ",
+                        style: TextStyle(
+                          fontSize: 25,
+                        ),
+                        )
+                      ],
                     ),
                   ),
                 ),
+
                 ListTile(
                   title: Text("About us"),
                   leading: Icon(Icons.account_box_outlined),
@@ -109,8 +115,32 @@ class _CategoryState extends State<Category> {
                 ),
                 ListTile(
                   title: Text("Exit"),
-                  leading: Icon(Icons.exit_to_app
-                  )
+                  leading: Icon(Icons.exit_to_app),
+                  onTap: (){
+                    showDialog(
+                        context: context,
+                        builder: (context){
+                          return AlertDialog(
+                            title: Text('Exit From Bcs Math'),
+                            content: Text("Are you sure want to exit ?"),
+                            actions: [
+                              FlatButton(
+                                onPressed: (){
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No"),
+                              ),
+                              FlatButton(
+                                onPressed: (){
+                                  exit(0);
+                                },
+                                child: Text("Okay"),
+                              ),
+                            ],
+                          );
+                        }
+                    );
+                  },
                 )
               ],
             )),
@@ -394,7 +424,7 @@ class _CategoryState extends State<Category> {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Color(0xD351FF21),
+                            color: Colors.deepPurple,
                           ),
                           alignment: Alignment.center,
                           child: Text(
